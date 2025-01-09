@@ -1,5 +1,15 @@
 const Category = require("./../db/category");
 
+async function getCategories() {
+  let categories = await Category.find();
+  return categories.map((c) => c.toObject());
+}
+
+async function getCategoryById(id) {
+  let category = await Category.findById(id);
+  return category.toObject();
+}
+
 async function addCategory(model) {
   let category = new Category({
     name: model.name,
@@ -19,4 +29,4 @@ async function deleteCategory(id) {
   return;
 }
 
-module.exports = { addCategory, updateCategory, deleteCategory };
+module.exports = { addCategory, updateCategory, deleteCategory, getCategories, getCategoryById };
