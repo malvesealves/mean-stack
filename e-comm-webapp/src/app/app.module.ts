@@ -6,15 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-import { CategoriesComponent } from './components/manage/categories/categories.component';
-import { CategoryFormComponent } from './components/manage/category-form/category-form.component';
 import { HomeComponent } from './components/home/home.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CategoriesComponent,
-    CategoryFormComponent,
+    AppComponent,        
     HomeComponent,
   ],
   imports: [
@@ -24,7 +21,7 @@ import { HomeComponent } from './components/home/home.component';
     MatButtonModule,
     MatTableModule,
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
